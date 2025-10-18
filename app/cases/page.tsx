@@ -3,8 +3,8 @@ import Section from '@/components/Section'
 import { Card } from '@/components/Card'
 export default function Cases(){
   const cases = [
-    { slug: 'omnes-education', title: 'OMNES Éducation', excerpt: 'Harmonisation nationale — Excel VBA + SQL Server + Power BI.' },
-    { slug: 'pilotee', title: 'Pilotee™', excerpt: 'Portail ASP.NET + Excel VBA — DLL .NET, sécurité & performance.' }
+    { slug: 'omnes-education', title: 'OMNES Éducation', excerpt: 'Harmonisation nationale - Excel VBA + SQL Server + Power BI.' },
+    { slug: 'pilotee', title: 'Pilotee™', excerpt: 'Portail ASP.NET + Excel VBA - DLL .NET, sécurité & performance.' }
   ]
   return (
     <Section className="pt-12">

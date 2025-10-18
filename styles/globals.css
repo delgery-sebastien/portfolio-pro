@@ -4,8 +4,14 @@
 
 body { @apply bg-slate-950 text-slate-100 antialiased; }
 .container { @apply max-w-6xl mx-auto px-4; }
-.card { @apply bg-slate-900/70 border border-slate-800 rounded-2xl shadow; }
+.card { @apply bg-slate-900/70 backdrop-blur border border-slate-800 rounded-2xl shadow-soft; }
 .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition; }
-.btn-primary { @apply bg-emerald-400 text-slate-900 hover:bg-emerald-300; }
+.btn-primary { @apply bg-[color:var(--btn-bg,theme(colors.accent.green))] text-slate-900 hover:brightness-110; }
 .btn-ghost { @apply border border-slate-700 hover:border-slate-500; }
+.prose { @apply prose-invert; }
+.band { @apply w-full; background: linear-gradient(180deg, theme(colors.brand.700), theme(colors.brand.800)); }
+.h1-hero { @apply text-4xl md:text-5xl font-semibold leading-tight; }
+.kicker { @apply text-slate-300; }
+.list-clean li { @apply flex items-start gap-2; }
+.list-clean svg { @apply mt-1 shrink-0; }
 .prose { @apply prose-invert; }
