@@ -1,0 +1,1 @@
+export default function Legal(){return (<section className='container pt-12 prose'><h1>Mentions légales</h1><p>À compléter selon votre structure.</p></section>)}

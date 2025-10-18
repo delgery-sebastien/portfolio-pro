@@ -1,0 +1,1 @@
+export default function Privacy(){return (<section className='container pt-12 prose'><h1>Confidentialité</h1><p>Formulaire, cookies, analytics.</p></section>)}
