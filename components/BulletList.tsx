@@ -1,18 +1,46 @@
-import { CheckIcon, CubeIcon } from './Icons'
+import { CheckIcon, CubeIcon } from "./Icons";
+import { TargetIcon } from "./Icons";
+import type { ReactNode } from "react";
 
-export function BulletList({ items, variant='check' }:{
-  items: string[], variant?: 'check' | 'cube'
-}){
-  const Icon = variant === 'check' ? CheckIcon : CubeIcon
-  const color = variant === 'check' ? 'text-[#2ecc71]' : 'text-[#c58a5a]'
+type IconName = "check" | "cube" | "target";
+
+export function BulletList({
+  items,
+  icon,                 // "check" | "cube" | "target" | ReactNode
+  variant,              // rétro-compat: "check" | "cube" | "target"
+  color,
+}: {
+  items: string[];
+  icon?: IconName | ReactNode;
+  variant?: IconName;   // <-- compat
+  color?: string;
+}) {
+  // 1) Quelle icône ? (priorité à `icon` si string, sinon `variant`)
+  const name: IconName =
+    typeof icon === "string" ? icon :
+    (variant ?? "check");
+
+  // 2) Composant d'icône si `name` est utilisé (sinon on affichera `icon` s'il est ReactNode)
+  const IconComp =
+    name === "cube"   ? CubeIcon  :
+    name === "target" ? TargetIcon:
+                        CheckIcon;
+
+  // 3) Couleur par défaut selon l’icône si `color` absent
+  const defaultColor =
+    name === "cube" ? "text-[#c58a5a]" : "text-emerald-400";
+  const iconColorClass = color ?? defaultColor;
+
   return (
-    <ul className="space-y-2">
-      {items.map((it,i)=>(
-        <li key={i} className="list-clean">
-          <Icon className={color}/>
-          <span className="text-slate-200">{it}</span>
+    <ul className="bullet-reset my-3">
+      {items.map((it, i) => (
+        <li key={i}>
+          <span className={`bullet-ico mr-2 inline-flex translate-y-[1px] ${iconColorClass}`}>
+            {typeof icon === "object" && icon !== null ? icon : <IconComp />}
+          </span>
+          <span className="leading-6 text-slate-300">{it}</span>
         </li>
       ))}
     </ul>
-  )
+  );
 }

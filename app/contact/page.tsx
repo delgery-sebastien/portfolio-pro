@@ -21,10 +21,17 @@ export default function Contact(){
         <input name="email" type="email" required placeholder="Email" className="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700"/>
         <input name="company" placeholder="Société (facultatif)" className="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700"/>
         <textarea name="message" required placeholder="Votre message" rows={6} className="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-700"></textarea>
-        <button disabled={loading} className="btn btn-primary">{loading ? 'Envoi...' : 'Envoyer'}</button>
+        <div className="flex justify-end">
+        <button disabled={loading} className="btn btn-primary">
+          {loading ? 'Envoi...' : 'Envoyer'}
+        </button>
+      </div>
         {ok && <p className="text-emerald-400">Message envoyé. Merci !</p>}
       </form>
       <p className="text-xs text-slate-500 mt-2">Formulaire protégé — anti-spam honeypot et contrôle serveur.</p>
     </section>
   )
 }
+
+
+		

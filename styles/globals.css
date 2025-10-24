@@ -15,3 +15,56 @@ body { @apply bg-slate-950 text-slate-100 antialiased; }
 .list-clean li { @apply flex items-start gap-2; }
 .list-clean svg { @apply mt-1 shrink-0; }
 .prose { @apply prose-invert; }
+
+.prose h1 { font-weight: 800; letter-spacing: -0.01em; }
+.prose h2 { font-weight: 800; letter-spacing: -0.01em; }
+
+.prose table { margin-top: 0; margin-bottom: 0; }
+.prose table tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.03);
+}
+.prose thead {
+  background: linear-gradient(to right, #1a365d, #0f2747);
+  color: #e2e8f0; /* text-slate-200 */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+.prose th {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ===== Lists: base & custom ===== */
+
+/* 1) Base: listes normales (disques, indentation propre) */
+.prose ul { list-style: disc; padding-left: 1.25rem; margin: .75rem 0; }
+.prose ol { padding-left: 1.25rem; margin: .75rem 0; }
+.prose li > p { margin: 0; } /* supprime la marge parasite sur <li><p> */
+
+/* 2) Custom bullets: UL avec classe .bullet-reset
+      -> retire tout marqueur natif, on gère l'icône nous-mêmes */
+.prose ul.bullet-reset { list-style: none; padding-left: 0; margin: .75rem 0; }
+.prose ul.bullet-reset > li {
+  display: flex;
+  gap: .5rem;
+  align-items: center;       /* au lieu de flex-start */
+  line-height: 1.5;
+}
+/* Ajustement fin de l'icône */
+.prose ul.bullet-reset > li > svg,
+.prose ul.bullet-reset > li > span:first-child {
+  transform: translateY(1px);   /* ou 2px selon ton rendu */
+}
+/* retire le disque par défaut */
+.prose ul.bullet-reset > li::marker { content: ''; }
+
+/* Espacement vertical COHÉRENT entre items */
+.prose ul.bullet-reset > li + li { margin-top: .25rem; }
+
+/* L'icône ne doit PAS influencer la line-height */
+.prose ul.bullet-reset > li .bullet-ico {
+  line-height: 0;            /* clé du problème */
+  transform: translateY(1px); /* 1–2px selon ton oeil */
+}

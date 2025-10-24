@@ -1,7 +1,11 @@
 import createMDX from '@next/mdx'
-const withMDX = createMDX({ extension: /\.mdx?$/ })
+import remarkGfm from 'remark-gfm'
+const withMDX = createMDX({ 
+	extension: /\.mdx?$/,
+	options: { remarkPlugins: [remarkGfm] }
+})
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
-  experimental: { mdxRs: true }
+  experimental: { }
 }
 export default withMDX(nextConfig)

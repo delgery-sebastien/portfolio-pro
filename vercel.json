@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "redirects": [
+    {
+      "source": "/downloads/:file",
+      "destination": "/d/:file",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/downloads/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, immutable"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

@@ -5,8 +5,11 @@ const links = [
   { href: '/', label: 'Accueil' },
   { href: '/services', label: 'Services' },
   { href: '/cases', label: 'Cas clients' },
+  { href: '/downloads', label: 'Téléchargements' },
+  //{ href: '/search', label: 'Recherche' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
+  //{ href: '/about', label: 'A propos' },
 ]
 export default function NavBar(){
   const p = usePathname()
