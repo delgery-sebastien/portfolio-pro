@@ -9,8 +9,7 @@ export default function CaceisCase(){
         <h1>Caceis - Développement de proximité - Commando VBA</h1>
         <p><strong>Rôle :</strong> Consultant Développeur VBA / SQL Senior</p>
         <p>
-          Uniformiser la structure et le suivi des programmes et budgets sur plusieurs écoles,
-          avec automatisation Excel/VBA ↔ SQL Server et visualisation Power BI.
+          Texte à compléter
         </p>
       </section>
 
@@ -21,7 +20,7 @@ export default function CaceisCase(){
 		  priority
 		>
 		  <p>
-			Le groupe OMNES souhaitait uniformiser la structure et le suivi de ses programmes et budgets répartis sur plusieurs écoles. Les outils existants étaient hétérogènes et peu maintenables.
+			Texte à compléter
 		  </p>
 		  
 		  <h3>Objectifs</h3>
@@ -29,10 +28,10 @@ export default function CaceisCase(){
 		  <BulletList
 			variant="target"
 			items={[
-			  "Structurer et fiabiliser la gestion des programmes et budgets",
-			  "Centraliser les données dans un modèle commun",
-			  "Automatiser le workflow de révision budgétaire",
-			  "Améliorer la visibilité et la cohérence nationale"
+			  "Texte à compléter",
+			  "Texte à compléter",
+			  "Texte à compléter",
+			  "Texte à compléter"
 			]}
 		  /></div>
 		</CaseFeature>
@@ -47,11 +46,10 @@ export default function CaceisCase(){
 		  <BulletList
 			variant="cube"
 			items={[
-			  "Outils Excel VBA centralisé connecté à Access/SQL Server",
-			  "Automatisation complète du cycle budgétaire",
-			  "Interfaces ergonomiques pour directions locales",
-			  "Intégration Power BI pour visualisation consolidée",
-			  "Formation et transfert de compétences"
+			  "Texte à compléter",
+			  "Texte à compléter",
+			  "Texte à compléter",
+			  "Texte à compléter"
 			]}
 		  />
 
@@ -59,10 +57,10 @@ export default function CaceisCase(){
 		  <BulletList
 			variant="check"
 			items={[
-			  "Réduction drastique du temps de consolidation",
-			  "Traçabilité et fiabilité renforcées",
-			  "Adoption rapide grâce à l’ergonomie Excel",
-			  "Pilotage du processus à l’échelle groupe"
+			  "Texte à compléter",
+			  "Texte à compléter",
+			  "Texte à compléter",
+			  "Texte à compléter"
 			]}
 		  />
 		</CaseFeature>

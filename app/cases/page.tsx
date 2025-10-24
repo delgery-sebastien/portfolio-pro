@@ -11,10 +11,12 @@ export default function Cases(){
 		img: '/cases/omnes-education/Image1.png' },
     { 	slug: 'caceis', 
 		title: 'Caceis', 
-		excerpt: 'Commando VBA' },
+		excerpt: 'Commando VBA',
+		img: '/cases/omnes-education/Image1.png'},
     { 	slug: 'pilotee', 
 		title: 'Pilotee™', 
-		excerpt: 'Portail ASP.NET + Excel VBA - DLL .NET, sécurité & performance.'}
+		excerpt: 'Portail ASP.NET + Excel VBA - DLL .NET, sécurité & performance.',
+		img: '/cases/omnes-education/Image1.png'}
   ]
   return (
     <Section className="pt-12">
