@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"node_modules\\\\flexsearch\\\\dist\\\\flexsearch.bundle.module.min.mjs -> worker_threads\":{\"id\":\"node_modules\\\\flexsearch\\\\dist\\\\flexsearch.bundle.module.min.mjs -> worker_threads\",\"files\":[\"static/chunks/_5206.js\"]}}"

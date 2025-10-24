@@ -1,9 +1,9 @@
 // app/robots.ts
 import type { MetadataRoute } from "next"
-
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+import { getSiteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const SITE = getSiteUrl(); // toujours une URL absolue
   return {
     rules: [
       { userAgent: '*', 
