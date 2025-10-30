@@ -1,90 +1,116 @@
+// app/services/page.tsx
 import Section from '@/components/Section'
 import { Card } from '@/components/Card'
 import Link from 'next/link'
+import { Database, BarChart3, Zap, ClipboardCheck, ListChecks, Wrench } from 'lucide-react'
 
-export default function Services(){
+function IconCircle({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-card">
+      {children}
+    </span>
+  )
+}
+
+export default function Services() {
   const items = [
     {
-      title: 'Audit & cadrage',
-      desc: 'Cartographie des outils existants, dette technique, plan d’actions priorisé (quick wins vs. fondations).',
-      points: [
-        'Ateliers besoin / contraintes',
-        'Cartographie des flux & risques',
-        'Backlog actionnable 2–6 semaines'
+      title: 'Automatisation VBA (Excel/Access)',
+      icon: <Zap size={16} className="text-base-normal" />,
+      desc: 'Expertise VBA pour automatiser les tâches répétitives, fiabiliser les processus et intégrer des contrôles robustes.',
+      bullets: [
+        'Interfaces ergonomiques et assistance de saisie',
+        'Traitements automatisés et journalisés',
+        'Intégration .NET / ODBC / API / Python',
       ],
     },
     {
-      title: 'Excel/VBA avancé',
-      desc: 'Refactoring, fiabilisation et industrialisation : interfaces, modules, erreurs, logs, déploiements.',
-      points: [
+      title: 'BI, Aide à la décision & pilotage',
+      icon: <BarChart3 size={16} className="text-base-normal" />,
+      desc: 'Mise en place de restitutions interactives et de tableaux de bord orientés projet, décision et performance.',
+      bullets: [
+        'Power BI, Jaspersoft, Excel avancé',
+        'Visualisation KPI et suivi d’indicateurs clés',
+        'Industrialisation et automatisation des actualisations',
+      ],
+    },
+    {
+      title: 'Normes & méthodes',
+      icon: <ClipboardCheck size={16} className="text-base-normal" />,
+      desc: 'Formalisation des bonnes pratiques de développement et accompagnement des équipes dans la montée en maturité.',
+      bullets: [
+        'Modèles de documents et plan qualité (PAQ / PQS)',
+        'Revue de code, refactoring, packaging',
+        'Audit, coaching et formation utilisateurs',
+      ],
+    },
+    {
+      title: 'Audit & cadrage',
+      icon: <ListChecks size={16} className="text-base-normal" />,
+      desc: 'Cartographie des outils existants, dette technique, plan d’actions priorisé (quick wins vs. fondations).',
+      bullets: [
+        'Ateliers besoin / contraintes',
+        'Spécifications techniques et fonctionnelles',
+        'Proposition de services et backlogs adaptés',
+      ],
+    },
+    {
+      title: 'Excel/VBA avancé & refactoring',
+      icon: <Wrench size={16} className="text-base-normal" />,
+      desc: 'Optimisation d’outils existants : fiabilisation, robustesse, documentation et industrialisation des déploiements.',
+      bullets: [
         'Patterns propres & modules réutilisables',
         'Journalisation, gestion d’erreurs robuste',
-        'Docs utilisateur & techniques'
+        'Docs utilisateur & techniques',
       ],
     },
     {
-      title: 'Interop .NET / DLL',
-      desc: 'Assemblies VB.NET, packaging, signatures/obfuscation, échanges COM/Interop Office sécurisés.',
-      points: [
-        'Assemblies/dll et dépendances',
-        'Obfuscation & protection IP',
-        'Intégration Office (Excel/Access)'
-      ],
-    },
-    {
-      title: 'Data & BI (Aide à la décision)',
-      desc: 'Modélisation SQL Server / Oracle, pipelines d’alimentation, Power BI, reporting automatisé.',
-      points: [
-        'Modèles relationnels sobres',
-        'ETL/chargements fiables',
-        'Tableaux de bord utiles'
-      ],
-    },
-    {
-      title: 'APIs & intégrations',
-      desc: 'Intégrations internes/externes, n8n, webhooks. Supervision & observabilité pragmatique.',
-      points: [
-        'Connecteurs métiers',
-        'Workflows n8n',
-        'Suivi & alertes'
-      ],
-    },
-    {
-      title: 'Transfert & TMA',
-      desc: 'Guides, formation courte, prise en main équipes, maintenance corrective/évolutive.',
-      points: [
-        'Guides & checklists',
-        'Coaching courte durée',
-        'TMA sereine'
+      title: 'Data, intégration & reprise de données',
+      icon: <Database size={16} className="text-base-normal" />,
+      desc: 'Modélisation SQL Server / Oracle, pipelines d’alimentation, optimisation de code.',
+      bullets: [
+        'Modèles relationnels SID/SIO',
+        'ETL/ELT : automatisation et contrôle qualité des flux',
+        'Nettoyage et alignement de données multi-sources',
       ],
     },
   ]
 
   return (
     <Section className="pt-12">
-      <h1 className="text-3xl font-semibold">Services & modes d’intervention</h1>
-      <p className="text-slate-300 mt-2">
-        Intervention pragmatique : résultats rapides, dette technique maîtrisée, et transmission.
+      <h1 className="text-3xl font-semibold">Services</h1>
+      <p className="text-base-normal mt-2">
+        Interventions pragmatiques : automatisation, contrôle et pilotage. Objectif : résultats
+        mesurables, dette technique maîtrisée.
       </p>
 
       <div className="grid md:grid-cols-2 gap-6 mt-8">
-        {items.map((it)=> (
+        {items.map((it) => (
           <Card key={it.title}>
-            <h3 className="font-semibold">{it.title}</h3>
-            <p className="text-slate-300 mt-1">{it.desc}</p>
-            <ul className="mt-3 list-disc list-inside text-slate-300 space-y-1">
-              {it.points.map(p => <li key={p}>{p}</li>)}
-            </ul>
+            <div className="flex items-start gap-3">
+              <IconCircle>{it.icon}</IconCircle>
+              <div className="flex-1">
+                <h3 className="font-semibold">{it.title}</h3>
+                <p className="text-base-normal mt-1">{it.desc}</p>
+                <ul className="text-base-normal mt-3 list-disc list-inside space-y-1">
+                  {it.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </Card>
         ))}
       </div>
 
       <div className="card p-6 mt-8 flex items-center justify-between gap-4">
         <div>
-          <h3 className="font-semibold">Parler de votre projet</h3>
-          <p className="text-slate-300">15 minutes pour valider le périmètre et proposer un plan simple.</p>
+          <h3 className="font-semibold">Parler de votre besoin</h3>
+          <p className="text-base-normal">15 minutes pour cadrer et proposer un plan simple.</p>
         </div>
-        <Link href="/contact" className="btn btn-primary">Me contacter</Link>
+        <Link href="/contact" className="btn btn-primary">
+          Me contacter
+        </Link>
       </div>
     </Section>
   )

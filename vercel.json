@@ -1,12 +1,5 @@
 {
   "version": 2,
-  "redirects": [
-    {
-      "source": "/downloads/:file",
-      "destination": "/d/:file",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/downloads/(.*)",

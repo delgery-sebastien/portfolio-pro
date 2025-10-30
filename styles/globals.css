@@ -2,27 +2,197 @@
 @tailwind components;
 @tailwind utilities;
 
-body { @apply bg-slate-950 text-slate-100 antialiased; }
-.container { @apply max-w-6xl mx-auto px-4; }
-.card { @apply bg-slate-900/70 backdrop-blur border border-slate-800 rounded-2xl shadow-soft; }
-.btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition; }
-.btn-primary { @apply bg-[color:var(--btn-bg,theme(colors.accent.green))] text-slate-900 hover:brightness-110; }
-.btn-ghost { @apply border border-slate-700 hover:border-slate-500; }
-.prose { @apply prose-invert; }
-.band { @apply w-full; background: linear-gradient(180deg, theme(colors.brand.700), theme(colors.brand.800)); }
-.h1-hero { @apply text-4xl md:text-5xl font-semibold leading-tight; }
-.kicker { @apply text-slate-300; }
-.list-clean li { @apply flex items-start gap-2; }
-.list-clean svg { @apply mt-1 shrink-0; }
-.prose { @apply prose-invert; }
-
-.prose h1 { font-weight: 800; letter-spacing: -0.01em; }
-.prose h2 { font-weight: 800; letter-spacing: -0.01em; }
-
-.prose table { margin-top: 0; margin-bottom: 0; }
-.prose table tr:nth-child(even) {
-  background-color: rgba(255,255,255,0.03);
+/* Couleurs de texte sémantiques */
+.text-base-normal {
+  @apply text-slate-700 dark:text-slate-300;
 }
+.text-base-muted {
+  @apply text-slate-600 dark:text-slate-400;
+}
+.text-base-light {
+  @apply text-slate-500 dark:text-slate-500;
+}
+
+.keyword {
+  color: #2ecc71; /* rgba(56, 69, 87, 0.95); */
+}
+.dark .keyword {
+  color: #2ecc71;
+}
+
+/* ---- fond/bordure sémantiques ---- */
+.bg-card {
+  @apply bg-white dark:bg-slate-900/70;
+}
+.border-card {
+  @apply border-slate-200 dark:border-slate-800;
+}
+.bg-input {
+  @apply bg-slate-100 dark:bg-slate-900;
+}
+.border-input {
+  @apply border-slate-300 dark:border-slate-700;
+}
+
+/* ---- formulaires ---- */
+.input,
+.textarea,
+select {
+  @apply w-full rounded-lg border border-slate-300 bg-white text-slate-800
+         placeholder-slate-400 focus:border-blue-500 focus:ring-1
+         focus:ring-blue-500 focus:outline-none;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  @apply border-slate-700 bg-slate-900 text-slate-100
+         placeholder-slate-500 focus:border-blue-400 focus:ring-blue-400;
+}
+
+/* ---- Header ---- */
+.nav-link {
+  @apply text-slate-200 dark:text-slate-200 hover:text-emerald-300 dark:hover:text-emerald-300;
+}
+.nav-link-active {
+  @apply text-emerald-400 dark:text-emerald-400 font-semibold;
+}
+
+.nav-bar {
+  /* Styles communs */
+  backdrop-filter: blur(8px);
+  border-bottom-width: 1px;
+
+  /* Theme clair */
+  background-color: rgba(56, 69, 87, 0.95);
+  border-color: #e2e8f0;
+}
+
+.dark .nav-bar {
+  /* Theme sombre */
+  background-color: rgba(2, 6, 23, 0.7);
+  border-color: #1e293b;
+}
+
+/* ---- Footer ---- */
+.footer-bar {
+  /* Styles communs */
+  backdrop-filter: blur(8px);
+  border-bottom-width: 1px;
+
+  /* Theme clair */
+  background-color: rgba(56, 69, 87, 0.95);
+  border-color: #e2e8f0;
+  color: white;
+}
+
+.dark .footer-bar {
+  /* Theme sombre */
+  background-color: rgba(2, 6, 23, 0.7);
+  border-color: #1e293b;
+  color: text-slate-200;
+}
+
+/* Gestion du thème global */
+.dark body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+}
+.body {
+  @apply bg-white text-slate-800;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+/*Gestion du thème dans les cartes*/
+.card {
+  @apply bg-slate-900/70 backdrop-blur border border-slate-800 rounded-2xl shadow-soft;
+}
+
+.card {
+  @apply bg-white border border-slate-400 rounded-2xl shadow-sm;
+}
+/* .card {
+  background-color: rgba(56, 69, 87, 0.95);
+  color: white;
+} */
+
+.dark .card {
+  @apply bg-slate-900/70 border-slate-800 shadow;
+}
+.dark .card .div .p {
+  @apply text-slate-900;
+}
+
+/*Gestion du thème pour les boutons*/
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition;
+}
+.btn-primary {
+  @apply text-slate-900 hover:brightness-110;
+}
+.btn-primary {
+  background-color: rgba(56, 69, 87, 0.95);
+  color: white;
+}
+.dark .btn-primary {
+  @apply bg-[color:var(--btn-bg,theme(colors.accent.green))] text-slate-900 hover:brightness-110;
+}
+
+.btn-ghost {
+  @apply border border-slate-700 hover:border-slate-500;
+}
+.btn-ghost:hover {
+  background-color: rgba(56, 69, 87, 0.75);
+  color: white;
+}
+
+/* ==== Typographie Prose ==== */
+.prose {
+  @apply prose-invert;
+}
+.band {
+  @apply w-full;
+  background: linear-gradient(180deg, theme(colors.brand.700), theme(colors.brand.800));
+}
+
+.h1-hero {
+  @apply text-4xl md:text-5xl font-semibold leading-tight;
+}
+.kicker {
+  @apply text-base-normal;
+}
+.list-clean li {
+  @apply flex items-start gap-2;
+}
+.list-clean svg {
+  @apply mt-1 shrink-0;
+}
+.prose {
+  @apply prose-invert;
+}
+
+.prose h1 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.prose h2 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.prose table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.prose table tr:nth-child(even) {
+  @apply bg-slate-100;
+}
+.dark .prose table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
 .prose thead {
   background: linear-gradient(to right, #1a365d, #0f2747);
   color: #e2e8f0; /* text-slate-200 */
@@ -33,38 +203,116 @@ body { @apply bg-slate-950 text-slate-100 antialiased; }
 .prose th {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0; /* text-slate-200 */
 }
-
 
 /* ===== Lists: base & custom ===== */
 
 /* 1) Base: listes normales (disques, indentation propre) */
-.prose ul { list-style: disc; padding-left: 1.25rem; margin: .75rem 0; }
-.prose ol { padding-left: 1.25rem; margin: .75rem 0; }
-.prose li > p { margin: 0; } /* supprime la marge parasite sur <li><p> */
+.prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.75rem 0;
+}
+.prose ol {
+  padding-left: 1.25rem;
+  margin: 0.75rem 0;
+}
+.prose li > p {
+  margin: 0;
+} /* supprime la marge parasite sur <li><p> */
 
 /* 2) Custom bullets: UL avec classe .bullet-reset
       -> retire tout marqueur natif, on gère l'icône nous-mêmes */
-.prose ul.bullet-reset { list-style: none; padding-left: 0; margin: .75rem 0; }
+.prose ul.bullet-reset {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0;
+}
 .prose ul.bullet-reset > li {
   display: flex;
-  gap: .5rem;
-  align-items: center;       /* au lieu de flex-start */
+  gap: 0.5rem;
+  align-items: center; /* au lieu de flex-start */
   line-height: 1.5;
 }
 /* Ajustement fin de l'icône */
 .prose ul.bullet-reset > li > svg,
 .prose ul.bullet-reset > li > span:first-child {
-  transform: translateY(1px);   /* ou 2px selon ton rendu */
+  transform: translateY(1px); /* ou 2px selon ton rendu */
 }
 /* retire le disque par défaut */
-.prose ul.bullet-reset > li::marker { content: ''; }
+.prose ul.bullet-reset > li::marker {
+  content: '';
+}
 
 /* Espacement vertical COHÉRENT entre items */
-.prose ul.bullet-reset > li + li { margin-top: .25rem; }
+.prose ul.bullet-reset > li + li {
+  margin-top: 0.25rem;
+}
 
 /* L'icône ne doit PAS influencer la line-height */
 .prose ul.bullet-reset > li .bullet-ico {
-  line-height: 0;            /* clé du problème */
+  line-height: 0; /* clé du problème */
   transform: translateY(1px); /* 1–2px selon ton oeil */
+}
+
+/* Styles Prose personnalisés */
+.prose {
+  /* @apply max-w-none; */
+  --tw-prose-body: theme(colors.slate.700);
+  --tw-prose-headings: theme(colors.slate.900);
+  --tw-prose-links: theme(colors.brand.700);
+  --tw-prose-bullets: theme(colors.slate.600);
+  --tw-prose-counters: theme(colors.slate.500);
+  --tw-prose-hr: theme(colors.slate.200);
+  --tw-prose-th-borders: theme(colors.slate.200);
+  --tw-prose-td-borders: theme(colors.slate.200);
+}
+
+/* Version sombre */
+.dark .prose {
+  --tw-prose-body: theme(colors.slate.300);
+  --tw-prose-headings: theme(colors.slate.100);
+  --tw-prose-links: theme(colors.slate.100);
+  --tw-prose-bullets: theme(colors.slate.400);
+  --tw-prose-counters: theme(colors.slate.500);
+  --tw-prose-hr: theme(colors.slate.700);
+  --tw-prose-th-borders: theme(colors.slate.800);
+  --tw-prose-td-borders: theme(colors.slate.800);
+}
+
+/* === Prose tweaks: code & strong, light/dark safe === */
+
+/* Inline code (``) – soft background, no extra backticks */
+.prose :where(code):not(:where(pre *)) {
+  @apply px-1.5 py-0.5 rounded text-sm;
+  @apply bg-slate-900/80 text-slate-200 font-mono;
+}
+.dark .prose :where(code):not(:where(pre *)) {
+  @apply border border-slate-800 text-inherit;
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #93c5fd; /* tailwind sky-300-ish for good contrast on dark */
+}
+/* remove the default `` quotes from typography plugin */
+.prose :where(code):not(:where(pre *))::before,
+.prose :where(code):not(:where(pre *))::after {
+  content: none !important;
+}
+
+/* Code blocks <pre><code>…</code></pre> – dark-friendly, no double background */
+.prose pre {
+  @apply bg-slate-900/80 text-slate-200 rounded-xl p-4 overflow-x-auto border border-slate-800;
+}
+.prose pre code {
+  @apply bg-transparent p-0 text-inherit font-mono;
+}
+.prose pre code::before,
+.prose pre code::after {
+  content: none !important; /* kill injected backticks in blocks */
+}
+
+/* Strong/emphase – use weight, not blinding white; keep color in theme */
+.prose :where(strong):not(:where([class~='not-prose'] *)) {
+  @apply font-bold;
+  color: inherit; /* no forced white; inherits body/link color */
 }

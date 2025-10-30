@@ -1,8 +1,8 @@
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
-const withMDX = createMDX({ 
-	extension: /\.mdx?$/,
-	options: { remarkPlugins: [remarkGfm] }
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: { remarkPlugins: [remarkGfm] },
 })
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
@@ -11,6 +11,16 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: { ignoreBuildErrors: true },
-  experimental: { }
+  experimental: {},
+  async redirects() {
+    return [
+      {
+        source: '/downloads/:file',
+        missing: [{ type: 'query', key: '__dl' }],
+        destination: '/d/:file',
+        permanent: false,
+      },
+    ]
+  },
 }
 export default withMDX(nextConfig)

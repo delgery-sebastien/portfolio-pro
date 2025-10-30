@@ -4,20 +4,20 @@ export function PostHeader({
   author,
   description,
 }: {
-  title: string;
-  date?: string;
-  author?: string;
-  description?: string;
+  title: string
+  date?: string
+  author?: string
+  description?: string
 }) {
   return (
     <header className="mb-8 border-b border-slate-700 pb-5">
-      <p className="text-sm text-slate-400">
+      <p className="text-sm text-base-muted">
         {date ? `${date}` : null}
-        {date && author ? " · " : ""}
+        {date && author ? ' · ' : ''}
         {author || null}
       </p>
       <h1 className="mt-2 text-3xl md:text-4xl font-semibold">{title}</h1>
-      {description ? <p className="mt-3 text-slate-300">{description}</p> : null}
+      {description ? <p className="text-base-normal mt-3">{description}</p> : null}
     </header>
-  );
+  )
 }
