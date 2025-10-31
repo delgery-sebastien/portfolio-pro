@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { Metadata } from 'next'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
+import { Analytics } from '@vercel/analytics/react'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavBar />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
