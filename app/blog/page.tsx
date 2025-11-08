@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Section from '@/components/Section'
 import { Card } from '@/components/Card'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description:
+    "Notes techniques VBA/.NET, data & BI — retours d'expérience et pédagogie.",
+  alternates: { canonical: '/blog' },
+}
 
 export default function Blog() {
   const posts = [

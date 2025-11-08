@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Section from '@/components/Section'
 import { Card } from '@/components/Card'
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: 'Cas clients',
+  description:
+    "Sélection de réalisations: structuration, automatisation, reporting BI — données anonymisées et visuels illustratifs.",
+  alternates: { canonical: '/cases' },
+}
 
 export default function Cases() {
   const intro = 'Sélection de réalisations avec visuels illustratifs (données anonymisées).'

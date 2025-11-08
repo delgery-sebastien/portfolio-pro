@@ -20,6 +20,11 @@ const nextConfig = {
         destination: '/d/:file',
         permanent: false,
       },
+      {
+        source: '/blog/tableaux-collections-dictionnaires-v2',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 }

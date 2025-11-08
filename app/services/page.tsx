@@ -1,8 +1,16 @@
 // app/services/page.tsx
+import type { Metadata } from 'next'
 import Section from '@/components/Section'
 import { Card } from '@/components/Card'
 import Link from 'next/link'
 import { Database, BarChart3, Zap, ClipboardCheck, ListChecks, Wrench } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Services',
+  description:
+    "Automatisation VBA, BI, normes & méthodes, audit et data — interventions pragmatiques, résultats mesurables.",
+  alternates: { canonical: '/services' },
+}
 
 function IconCircle({ children }: { children: React.ReactNode }) {
   return (

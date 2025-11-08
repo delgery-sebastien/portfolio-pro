@@ -1,5 +1,13 @@
+
+import type { Metadata } from 'next'
 'use client'
 import { useState } from 'react'
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: "Décrivez brièvement votre besoin — réponse sous 24h ouvrées.",
+  alternates: { canonical: '/contact' },
+}
 
 export default function Contact() {
   const [loading, setLoading] = useState(false)
