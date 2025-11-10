@@ -24,7 +24,7 @@ export default function ContactForm() {
 
       if (!res.ok) {
         setOk(false)
-        setError('Une erreur est survenue, veuillez reessayer plus tard.')
+        setError('Une erreur est survenue, veuillez réessayer plus tard.')
         return
       }
 
@@ -33,7 +33,7 @@ export default function ContactForm() {
     } catch (err: any) {
       console.error(err)
       setOk(false)
-      setError('Message non envoye - veuillez reessayer plus tard.')
+      setError('Message non envoyé — veuillez réessayer plus tard.')
     } finally {
       setLoading(false)
     }
@@ -56,7 +56,7 @@ export default function ContactForm() {
       />
       <input
         name="company"
-        placeholder="Societe (facultatif)"
+        placeholder="Société (facultatif)"
         className="w-full px-4 py-2 rounded-xl bg-input border border-input"
       />
       <textarea
@@ -68,7 +68,7 @@ export default function ContactForm() {
       ></textarea>
       <div className="flex items-center justify-between gap-3">
         <div className="min-h-[1.25rem] flex items-center">
-          {ok && <p className="text-emerald-500 text-sm">Message envoye. Merci !</p>}
+          {ok && <p className="text-emerald-500 text-sm">Message envoyé. Merci !</p>}
           {error && <p className="text-red-500 text-sm">{error}</p>}
         </div>
         <button disabled={loading} className="btn btn-primary">
@@ -78,4 +78,3 @@ export default function ContactForm() {
     </form>
   )
 }
-

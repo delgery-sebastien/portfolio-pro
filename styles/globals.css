@@ -58,6 +58,18 @@ select {
   @apply text-emerald-400 dark:text-emerald-400 font-semibold;
 }
 
+.panel-menu {
+  @apply border border-slate-800 rounded-lg shadow-lg;
+  background-color: rgba(56, 69, 87, 0.95);
+}
+.dark .panel-_menu {
+  @apply bg-slate-900 border-slate-800;
+}
+
+.panel-button {
+  @apply border-slate-800 text-slate-300;
+}
+
 .nav-bar {
   /* Styles communs */
   backdrop-filter: blur(8px);
