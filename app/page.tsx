@@ -42,21 +42,24 @@ export default function Page() {
         </div>
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <Card>
-            <h4 className="font-semibold">Industrialisation</h4>
-            <p className="text-base-normal mt-1">
-              Qualité code, tests, versioning, packaging et sécurité.
-            </p>
-          </Card>
-          <Card>
-            <h4 className="font-semibold">Automatisation</h4>
-            <p className="text-base-normal mt-1">
-              Workflows Excel/SQL, macros robustes, interop .NET.
-            </p>
-          </Card>
-          <Card>
             <h4 className="font-semibold">Pilotage et aide à la décision</h4>
             <p className="text-base-normal mt-1">
-              KPI utiles, visualisation claire, documentation et transfert.
+              KPIs utiles, visualisations claires, documentation et transfert. Pilotage projet,
+              budget, capacity management, risques.
+            </p>
+          </Card>
+          <Card>
+            <h4 className="font-semibold">Automatisation VBA</h4>
+            <p className="text-base-normal mt-1">
+              Automatisation Microsoft Excel et addin, macros robustes, interop .NET, traitement et
+              visualisatrion de données (SQL, csv, etc.).
+            </p>
+          </Card>
+          <Card>
+            <h4 className="font-semibold">Industrialisation</h4>
+            <p className="text-base-normal mt-1">
+              Qualité code, normes et méthodes, ordonnancement, tests, versioning, packaging et
+              sécurité.
             </p>
           </Card>
         </div>

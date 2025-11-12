@@ -1,16 +1,14 @@
 export const meta = {
   title: "Tableaux, Collections et Dictionnaires VBA - le trio qu'il faut enfin comprendre",
-  description: "Comprendre enfin les différences entre Tableaux, Collections et Dictionnaires en VBA — quand utiliser chacun, leurs avantages et exemples concrets.",
-  date: "2025-10-20",
-  author: "DELGERY Sébastien"
-};
+  description:
+    'Comprendre enfin les différences entre Tableaux, Collections et Dictionnaires en VBA — quand utiliser chacun, leurs avantages et exemples concrets.',
+  date: '2025-10-20',
+  author: 'DELGERY Sébastien',
+}
 
-import { PostHeader } from "@/components/PostHeader";
+import { PostHeader } from '@/components/PostHeader'
 
 <PostHeader {...meta} />
-
-
-# Tableaux, Collections et Dictionnaires VBA — le trio qu’il faut enfin comprendre
 
 Quand on code en VBA, on finit toujours par croiser ces trois structures : **le tableau**, **la collection** et **le dictionnaire**.  
 Elles paraissent interchangeables… jusqu’à ce qu’on s’y perde entre indices, clés et typages.  
@@ -33,16 +31,19 @@ Debug.Print arr(2)    ' → VBA
 ```
 
 ✅ **Avantages :**
+
 - très rapide (stocké en mémoire contiguë)
 - parfait pour parcourir des lignes/colonnes
 - compatible avec les `Range.Value`
 
 ⚠️ **Limites :**
+
 - index numérique uniquement (pas de clé texte)
 - redimensionnement coûteux
 - pas de suppression d’élément “au milieu”
 
 💡 Astuce : pour traiter un tableau Excel entier d’un coup, c’est imbattable :
+
 ```vba
 arr = Range("A1:C1000").Value
 ```
@@ -54,64 +55,70 @@ arr = Range("A1:C1000").Value
 Une **Collection** est un conteneur dynamique natif VBA, parfait pour empiler des objets ou valeurs sans se soucier des tailles.
 
 ```vba
-Dim c As New Collection
-c.Add "Excel"
-c.Add "VBA"
-c.Add "SQL"
+Dim oCol As New Collection
+oCol.Add "Excel"
+oCol.Add "VBA"
+oCol.Add "SQL"
 
-Debug.Print c(2)          ' → VBA
-Debug.Print c.Count       ' → 3
+Debug.Print oCol(2)          ' → VBA
+Debug.Print oCol.Count       ' → 3
 ```
 
 ✅ **Avantages :**
+
 - ajout/suppression ultra simple (`.Add`, `.Remove`)
 - accepte n’importe quel type (objets, chaînes, tableaux…)
 - possible de donner une clé texte (facultative)
 
 ⚠️ **Limites :**
+
 - pas de vérification d’existence (`On Error Resume Next` obligatoire)
 - plus lent qu’un tableau sur gros volumes
 - pas d’accès direct aux clés (`For Each` uniquement)
 
 💡 Exemple avec clé facultative :
+
 ```vba
-c.Add "Sébastien", "Auteur"
-Debug.Print c("Auteur")
+oCol.Add "Sébastien", "Auteur"
+Debug.Print oCol("Auteur")
 ```
 
 ---
 
 ## 🧠 3. Le dictionnaire — rapide, structuré, clé → valeur
 
-Le **Scripting.Dictionary** (librairie *Microsoft Scripting Runtime*) est l’équivalent VBA d’un `Map` : on associe **une clé unique** à **une valeur**.
+Le **Scripting.Dictionary** (librairie _Microsoft Scripting Runtime_) est l’équivalent VBA d’un `Map` : on associe **une clé unique** à **une valeur**.
 
 ```vba
-Dim d As Object
-Set d = CreateObject("Scripting.Dictionary")
+Dim oDic As Object
+Set oDic = CreateObject("Scripting.Dictionary")
 
-d("Langage") = "VBA"
-d("Année") = 1995
-d("Auteur") = "Microsoft"
+oDic("Langage") = "VBA"
+oDic("Année") = 1995
+oDic("Auteur") = "Microsoft"
 
-Debug.Print d("Auteur")     ' → Microsoft
+Debug.Print oDic("Auteur")     ' → Microsoft
 ```
 
 ✅ **Avantages :**
+
 - accès direct par clé (texte, numérique…)
 - `.Exists` pour tester avant d’ajouter
 - très rapide en lookup (table de hachage)
 - `.Keys` et `.Items` pour parcourir
 
 ⚠️ **Limites :**
+
 - nécessite `CreateObject` (non natif VBA)
 - pas trié
 - pas de doublons de clé
 
 💡 Exemples utiles :
+
 ```vba
-If Not d.Exists("Langage") Then d("Langage") = "VBA"
-For Each k In d.Keys
-    Debug.Print k, d(k)
+If Not oDic.Exists("Langage") Then oDic("Langage") = "VBA"
+For Each k In oDic.Keys
+    Debug.Print k, oDic(k)
 Next
 ```
 
@@ -119,16 +126,16 @@ Next
 
 ## ⚙️ 4. Tableau vs Collection vs Dictionnaire — le comparatif
 
-| Caractéristique | **Tableau** | **Collection** | **Dictionary** |
-|------------------|-------------|----------------|----------------|
-| Type d’index | Numérique | Numérique / Texte (optionnel) | Texte / Numérique |
-| Taille dynamique | Redim | Oui | Oui |
-| Accès direct | `arr(i)` | `col(i)` / `col("clé")` | `d("clé")` |
-| Test d’existence | Non | Non (sauf erreur) | `.Exists("clé")` |
-| Itération | `For i=LBound..UBound` | `For Each` | `For Each` |
-| Performance | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |
-| Multi-dimension | Oui | Non | Non |
-| Parfait pour | Données tabulaires | Listes souples / objets | Lookup, mapping, caches |
+| Caractéristique  | **Tableau**            | **Collection**                | **Dictionary**          |
+| ---------------- | ---------------------- | ----------------------------- | ----------------------- |
+| Type d’index     | Numérique              | Numérique / Texte (optionnel) | Texte / Numérique       |
+| Taille dynamique | Redim                  | Oui                           | Oui                     |
+| Accès direct     | `arr(i)`               | `col(i)` / `col("clé")`       | `d("clé")`              |
+| Test d’existence | Non                    | Non (sauf erreur)             | `.Exists("clé")`        |
+| Itération        | `For i=LBound..UBound` | `For Each`                    | `For Each`              |
+| Performance      | ⭐⭐⭐                 | ⭐⭐                          | ⭐⭐⭐                  |
+| Multi-dimension  | Oui                    | Non                           | Non                     |
+| Parfait pour     | Données tabulaires     | Listes souples / objets       | Lookup, mapping, caches |
 
 ---
 
@@ -137,20 +144,22 @@ Next
 On peut (et souvent on doit) **combiner** les structures :
 
 ### Dictionnaire de tableaux
+
 ```vba
-d("Ligne1") = Array("A", "B", "C")
-Debug.Print d("Ligne1")(2)    ' → B
+oDic("Ligne1") = Array("A", "B", "C")
+Debug.Print oDic("Ligne1")(2)    ' → B
 ```
 
 ### Collection de dictionnaires
-```vba
-Dim col As New Collection, d2 As Object
-Set d2 = CreateObject("Scripting.Dictionary")
-d2("Nom") = "Delgery"
-d2("Role") = "Consultant"
-col.Add d2, "Profil"
 
-Debug.Print col("Profil")("Nom")
+```vba
+Dim oCol As New Collection, oDic2 As Object
+Set oDic2 = CreateObject("Scripting.Dictionary")
+oDic2("Nom") = "Delgery"
+oDic2("Role") = "Consultant"
+oCol.Add oDic2, "Profil"
+
+Debug.Print oCol("Profil")("Nom")
 ```
 
 ---
@@ -159,12 +168,12 @@ Debug.Print col("Profil")("Nom")
 
 > 🔹 **Tableau** → performance brute  
 > 🔹 **Collection** → souplesse sans prise de tête  
-> 🔹 **Dictionnaire** → structure clé/valeur, parfaite pour anonymisation, mapping, caches, agrégations  
+> 🔹 **Dictionnaire** → structure clé/valeur, parfaite pour anonymisation, mapping, caches, agrégations
 
 Et comme toujours en VBA : commence simple, optimise plus tard.  
 Le bon conteneur est celui qui **éclaire ton code, pas celui qui impressionne ton compilateur** 😉
 
 ---
 
-📘 *Article rédigé par **DELGERY Sébastien** – Consultant PPM & BI / Développeur VBA & .NET*  
+_Article rédigé par **DELGERY Sébastien** – Consultant PPM & BI / Développeur VBA & .NET_  
 _© Overview Software · Automatisation, fiabilité, clarté._
