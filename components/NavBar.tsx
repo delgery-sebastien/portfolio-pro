@@ -37,7 +37,7 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-1">
+        <nav className="hidden lg:flex gap-1">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -59,7 +59,7 @@ export default function NavBar() {
           aria-controls="mobile-menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-lg border panel-button"
+          className="lg:hidden inline-flex items-center justify-center h-9 w-9 rounded-lg border panel-button"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" className="text-slate-300">
             <path
@@ -78,7 +78,7 @@ export default function NavBar() {
         createPortal(
           <div
             id="mobile-menu"
-            className={`md:hidden fixed inset-0 z-[200] ${open ? '' : 'pointer-events-none'}`}
+            className={`lg:hidden fixed inset-0 z-[200] ${open ? '' : 'pointer-events-none'}`}
           >
             <div
               className={`absolute inset-0 bg-black/50 transition-opacity ${
