@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: 'OMNES Éducation — Harmonisation des programmes & budgets',
   description:
     'Transformation d’un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.',
+  alternates: { canonical: '/cases/omnes-education' },
 }
+
 
 export default function OmnesCase() {
   return (

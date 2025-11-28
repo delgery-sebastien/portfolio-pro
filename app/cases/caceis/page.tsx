@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: 'CACEIS — Commando VBA pour le clearing Dérivés listés',
   description:
     'Mission commando/DevOps métier pour fiabiliser les outils VBA/Oracle du département Dérivés listés Caceis.',
+  alternates: { canonical: '/cases/caceis' },
 }
+
 
 export default function CaceisCase() {
   return (
