@@ -7,6 +7,11 @@ import { getSiteUrl } from '@/lib/site'
 
 const SITE = getSiteUrl()
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
