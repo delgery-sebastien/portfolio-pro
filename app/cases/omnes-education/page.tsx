@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'OMNES Éducation - Harmonisation des programmes & budgets',
   description:
     "Transformation d'un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.",
-  alternates: { canonical: `${SITE}/cases/omnes-education` },
+  alternates: { canonical: `${SITE}/cases/omnes-education/` },
   openGraph: {
     title: 'OMNES Éducation - Harmonisation des programmes & budgets',
     description:
       "Transformation d'un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.",
-    url: `${SITE}/cases/omnes-education`,
+    url: `${SITE}/cases/omnes-education/`,
     images: ['/og-image.webp'],
   },
   twitter: {
@@ -27,9 +27,6 @@ export const metadata: Metadata = {
     images: ['/og-image.webp'],
   },
 }
-
-
-
 
 export default function OmnesCase() {
   return (
