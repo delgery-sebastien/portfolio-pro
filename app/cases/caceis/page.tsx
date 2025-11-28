@@ -3,12 +3,15 @@ import { BulletList } from '@/components/BulletList'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getSiteUrl } from '@/lib/site'
+
+const SITE = getSiteUrl()
 
 export const metadata: Metadata = {
   title: 'CACEIS — Commando VBA pour le clearing Dérivés listés',
   description:
     'Mission commando/DevOps métier pour fiabiliser les outils VBA/Oracle du département Dérivés listés Caceis.',
-  alternates: { canonical: '/cases/caceis' },
+  alternates: { canonical: `${SITE}/cases/caceis` },
 }
 
 

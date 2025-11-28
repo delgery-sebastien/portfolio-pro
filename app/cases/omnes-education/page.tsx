@@ -3,12 +3,15 @@ import { BulletList } from '@/components/BulletList'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getSiteUrl } from '@/lib/site'
+
+const SITE = getSiteUrl()
 
 export const metadata: Metadata = {
   title: 'OMNES Éducation — Harmonisation des programmes & budgets',
   description:
     'Transformation d’un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.',
-  alternates: { canonical: '/cases/omnes-education' },
+  alternates: { canonical: `${SITE}/cases/omnes-education` },
 }
 
 
