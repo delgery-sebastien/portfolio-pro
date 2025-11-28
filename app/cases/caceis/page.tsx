@@ -8,11 +8,27 @@ import { getSiteUrl } from '@/lib/site'
 const SITE = getSiteUrl()
 
 export const metadata: Metadata = {
-  title: 'CACEIS — Commando VBA pour le clearing Dérivés listés',
+  title: 'CACEIS - Commando VBA pour le clearing dérivés listés',
   description:
     'Mission commando/DevOps métier pour fiabiliser les outils VBA/Oracle du département Dérivés listés Caceis.',
   alternates: { canonical: `${SITE}/cases/caceis` },
+  openGraph: {
+    title: 'CACEIS - Commando VBA pour le clearing dérivés listés',
+    description:
+      'Mission commando/DevOps métier pour fiabiliser les outils VBA/Oracle du département Dérivés listés Caceis.',
+    url: `${SITE}/cases/caceis`,
+    images: ['/og-image.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CACEIS - Commando VBA pour le clearing dérivés listés',
+    description:
+      'Mission commando/DevOps métier pour fiabiliser les outils VBA/Oracle du département Dérivés listés Caceis.',
+    images: ['/og-image.webp'],
+  },
 }
+
+
 
 
 export default function CaceisCase() {

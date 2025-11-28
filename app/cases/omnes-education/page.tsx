@@ -8,11 +8,27 @@ import { getSiteUrl } from '@/lib/site'
 const SITE = getSiteUrl()
 
 export const metadata: Metadata = {
-  title: 'OMNES Éducation — Harmonisation des programmes & budgets',
+  title: 'OMNES Éducation - Harmonisation des programmes & budgets',
   description:
-    'Transformation d’un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.',
+    "Transformation d'un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.",
   alternates: { canonical: `${SITE}/cases/omnes-education` },
+  openGraph: {
+    title: 'OMNES Éducation - Harmonisation des programmes & budgets',
+    description:
+      "Transformation d'un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.",
+    url: `${SITE}/cases/omnes-education`,
+    images: ['/og-image.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OMNES Éducation - Harmonisation des programmes & budgets',
+    description:
+      "Transformation d'un mille-feuille Excel en référentiel pédagogique et budgétaire piloté via SQL et Power BI.",
+    images: ['/og-image.webp'],
+  },
 }
+
+
 
 
 export default function OmnesCase() {
